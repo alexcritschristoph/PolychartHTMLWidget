@@ -1,0 +1,42 @@
+<html>
+<head>
+<script src="./lib/jquery.min.js"></script>
+<script src="./lib/polychart2.standalone.js"></script>
+
+
+<script>
+$( document ).ready(function() {
+	var searchterms = polyjs.data({
+	    term: ["Flower", "Chocolate", "Candy", "Valentine"],
+	    count: [16600000, 9140000, 7480000, 5000000],
+	    type: [1,1,2,2]
+	});
+	polyjs.chart({
+	    layer: {
+	        data: searchterms,
+	        type: "point",
+	        x: "term",
+	        y: "count"
+	    },
+	     facet: {
+        type: "wrap",
+        var: "type",
+        formatter: function(facetObject) {
+            var title = facetObject.category;
+            return title;
+        	}
+        },
+	    title: "Monthly Google Search",
+	    dom: "chart",
+	    width: 800,
+	    height: 400
+	});
+});
+</script>
+</head>
+<body>
+
+Hello
+<div id="chart"></div>
+</body>
+</html>

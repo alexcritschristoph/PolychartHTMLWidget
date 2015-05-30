@@ -1,0 +1,8 @@
+dependencies:
+  - name: polychart
+    version: 0.3.0
+    src: htmlwidgets/lib
+    script:
+      - polychart.js
+      - jquery.min.js
+#    stylesheet:
