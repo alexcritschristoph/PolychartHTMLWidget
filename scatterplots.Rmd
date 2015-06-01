@@ -1,26 +1,31 @@
 ---
-title: "Scatterplots"
+title: "Interactive Scatter Plots with polychart"
 output: html_document
 ---
 
 ```{r}
-library(polychart);
+library(polychart)
 ```
 
-#PolyChart
+Define the data
 
-```{r, echo=FALSE}
-
+```{r}
 data = mtcars
 x = 'wt'
 y = 'mpg'
 group = 'cyl'
+```
 
+Load ggplot, and define ggplot object
 
+```{r}
 library(ggplot2)
-
 sp <- ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point(shape=1, aes(colour=am)) 
 gg <- sp + facet_grid(vs ~.) + ggtitle("This is the title!")
+```
 
-polychart(gg,data_cols=c("drat","hp","qsec"))
+provide polychart with the ggplot scatter plot object
+
+```{r, echo=FALSE}
+polychart(gg_obj = gg, data_cols=c("drat","hp","qsec"))
 ```

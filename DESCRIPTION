@@ -1,8 +1,13 @@
 Package: polychart
-Title: What the Package Does (one line, title case)
-Version: 0.0.1
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph)
+Title: Interactive Scatterplots using htmlwidgets and polychart
+Version: 0.1.1
+Author:
+    Alex Crits-Christoph <acc@secondgenome.com>,
+    Paul J. McMurdie <joey@secondgenome.com>
+Description: Complete htmlwidgets-based interface for mapping
 Depends: R (>= 3.1.1)
-License: What license is it under?
+Imports:
+    htmlwidgets (>= 0.3.2),
+    ggplot2 (>= 1.0.0)
+License: AGPL3
 LazyData: true

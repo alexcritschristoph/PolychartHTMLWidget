@@ -1,8 +1,8 @@
-#' <Add Title>
+#' Create polychart-based scatter plot
 #'
-#' <Add Description>
+#' More info here.
 #'
-#' @import htmlwidgets
+#' @importFrom htmlwidgets createWidget
 #'
 #' @export
 polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(0,1), palette=c("#3182bd","#fd8d3c","#74c476")) {
@@ -12,13 +12,13 @@ polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(0,1), pal
   #Get data
   gg_data = gg_obj$data
   g_facet = toString(unlist(gg_obj$facet[1])$rows)
-  
+
   title = gg_obj$labels['title'][[1]]
   #Get color
   g_color = gg_obj$labels['colour'][[1]]
-  
+
   gg_data$color_val <- palette[as.factor(gg_data[[g_color]])]
-  
+
   # forward options using x
   x = list(
     data = gg_data,
@@ -31,7 +31,7 @@ polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(0,1), pal
   )
 
   # create widget
-  htmlwidgets::createWidget(
+  createWidget(
     name = 'polychart',
     x,
     width = width,
@@ -39,16 +39,16 @@ polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(0,1), pal
     package = 'polychart'
   )
 }
-
 #' Widget output function for use in Shiny
 #'
+#' @importFrom htmlwidgets shinyWidgetOutput
 #' @export
 polychartOutput <- function(outputId, width = '100%', height = '400px'){
   shinyWidgetOutput(outputId, 'polychart', width, height, package = 'polychart')
 }
-
 #' Widget render function for use in Shiny
 #'
+#' @importFrom htmlwidgets shinyRenderWidget
 #' @export
 renderPolychart <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
