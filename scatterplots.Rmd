@@ -7,21 +7,15 @@ output: html_document
 library(polychart)
 ```
 
-Define the data
-
-```{r}
-data = mtcars
-x = 'wt'
-y = 'mpg'
-group = 'cyl'
-```
-
 Load ggplot, and define ggplot object
 
 ```{r}
 library(ggplot2)
-sp <- ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point(shape=1, aes(colour=am)) 
-gg <- sp + facet_grid(vs ~.) + ggtitle("This is the title!")
+sp <- ggplot(mtcars, aes(x=wt, y=mpg)) + 
+  geom_point(aes(colour=am)) 
+gg <- sp + 
+  facet_grid(vs ~.) + 
+  ggtitle("This is the title!")
 ```
 
 provide polychart with the ggplot scatter plot object
