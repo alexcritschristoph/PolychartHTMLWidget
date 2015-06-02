@@ -14,8 +14,7 @@ shinyUI(fluidPage(
     ),
     # Show a plot of the generated distribution
     mainPanel(
-      #polychartOutput("polychart1"),
-      plotOutput("ggplot1")
+      polychart::polychartOutput("polychart1")
     )
   )
 ))

@@ -16,9 +16,7 @@ shinyServer(function(input, output) {
       ggtitle("This is the title!")
     return(gg)
   })
-  output$ggplot1 <- renderPlot({
-    make_ggplot()
-  })
+
   output$polychart1 <- renderPolychart({
     gg = make_ggplot()
     polychart(gg_obj = gg,

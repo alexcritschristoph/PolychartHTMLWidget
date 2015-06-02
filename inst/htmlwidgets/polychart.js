@@ -5,15 +5,13 @@ HTMLWidgets.widget({
   type: 'output',
 
   initialize: function(el, width, height) {
-
-    return {
-      // TODO: add instance fields as required
-    }
+    return "We don't initialize here!";
 
   },
 
   renderValue: function(el, x, instance) {
-    
+   document.getElementById(el.id).innerHTML="";
+
     //Create JSON data.
     var searchterms = polyjs.data(x.data);
     var x_r = Math.max.apply(null, x.data[x.x_var]) - Math.min.apply(null, x.data[x.x_var])

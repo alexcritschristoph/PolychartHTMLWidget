@@ -4,5 +4,4 @@ dependencies:
     src: htmlwidgets/lib
     script:
       - polychart.js
-      - jquery.min.js
 #    stylesheet:

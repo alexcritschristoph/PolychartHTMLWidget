@@ -1,17 +1,26 @@
 <html>
 <head>
-<script src="./lib/jquery.min.js"></script>
-<script src="./lib/polychart2.standalone.js"></script>
+<script src="./lib/polychart.js"></script>
+</head>
+<body>
 
+Hello World!
+<div id="chart"></div>
 
 <script>
-$( document ).ready(function() {
-	var searchterms = polyjs.data({
+  var searchterms = polyjs.data({
 	    term: ["Flower", "Chocolate", "Candy", "Valentine"],
 	    count: [16600000, 9140000, 7480000, 5000000],
 	    type: [1,1,2,2]
 	});
-	polyjs.chart({
+
+	var s = polyjs.chart({layer: {
+
+			        data: searchterms,
+	        type: "point",
+	}, dom: "chart"});
+	
+	s.make({
 	    layer: {
 	        data: searchterms,
 	        type: "point",
@@ -31,12 +40,6 @@ $( document ).ready(function() {
 	    width: 800,
 	    height: 400
 	});
-});
 </script>
-</head>
-<body>
-
-Hello
-<div id="chart"></div>
 </body>
 </html>
