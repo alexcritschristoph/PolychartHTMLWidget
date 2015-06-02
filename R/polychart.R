@@ -11,13 +11,40 @@ polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(0,1), pal
 
   #Get data
   gg_data = gg_obj$data
-  g_facet = toString(unlist(gg_obj$facet[1])$rows)
 
-  title = gg_obj$labels['title'][[1]]
-  #Get color
-  g_color = gg_obj$labels['colour'][[1]]
-
-  gg_data$color_val <- palette[as.factor(gg_data[[g_color]])]
+  if (typeof(unlist(gg$facet[1])[[1]]) == "logical")
+  {
+    g_facet = "placeholder"
+    use_facet = FALSE
+  }
+  else
+  {
+    g_facet = toString(unlist(gg_obj$facet[1])$rows)
+    use_facet = TRUE
+  }
+  if (is.null(gg_obj$labels['title'][[1]]))
+  {
+    title = "placeholder"
+    use_title = FALSE
+  }
+  else
+  {
+    title = gg_obj$labels['title'][[1]]   
+    use_title = TRUE
+  }
+  
+  if (is.null(gg_obj$labels['colour'][[1]]))
+  {
+    g_color = "placeholder"  
+    use_color = FALSE
+  }
+  else
+  {
+    g_color = gg_obj$labels['colour'][[1]] 
+    use_color = TRUE
+    gg_data$color_val <- palette[as.factor(gg_data[[g_color]])]
+  }
+  
 
   # forward options using x
   x = list(
@@ -27,7 +54,10 @@ polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(0,1), pal
     title = title,
     x_var = gg_obj$labels['x'][[1]],
     y_var = gg_obj$labels['y'][[1]],
-    data_cols = data_cols
+    data_cols = data_cols,
+    use_title = use_title,
+    use_color = use_color,
+    use_facet = use_facet
   )
 
   # create widget
