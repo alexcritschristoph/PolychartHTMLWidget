@@ -12,7 +12,7 @@ polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(0,1), pal
   #Get data
   gg_data = gg_obj$data
 
-  if (typeof(unlist(gg_obj$facet[1])[[1]]) == "logical")
+  if (inherits(gg_obj$facet, 'null'))
   {
     g_facet = "placeholder"
     use_facet = FALSE
