@@ -14,13 +14,13 @@ polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(0,1), pal
   draw_plot = FALSE
   
   #Check if dataframe is empty or not empty
-  
-  #Check if x and y columns in data frame are 
+
+  #Check if x and y columns in data frame are
   if (gg_obj$labels['x'][[1]] %in% colnames(gg_data) && gg_obj$labels['y'][[1]] %in% colnames(gg_data))
   {
     draw_plot = TRUE
   }
-  
+
   if (inherits(gg_obj$facet, 'null'))
   {
     g_facet = "placeholder"
@@ -38,22 +38,22 @@ polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(0,1), pal
   }
   else
   {
-    title = gg_obj$labels['title'][[1]]   
+    title = gg_obj$labels['title'][[1]]
     use_title = TRUE
   }
-  
+
   if (is.null(gg_obj$labels['colour'][[1]]))
   {
-    g_color = "placeholder"  
+    g_color = "placeholder"
     use_color = FALSE
   }
   else
   {
-    g_color = gg_obj$labels['colour'][[1]] 
+    g_color = gg_obj$labels['colour'][[1]]
     use_color = TRUE
     gg_data$color_val <- palette[as.factor(gg_data[[g_color]])]
   }
-  
+
 
   # forward options using x
   x = list(
