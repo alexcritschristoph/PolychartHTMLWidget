@@ -11,7 +11,16 @@ polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(0,1), pal
 
   #Get data
   gg_data = gg_obj$data
-
+  draw_plot = FALSE
+  
+  #Check if dataframe is empty or not empty
+  
+  #Check if x and y columns in data frame are 
+  if (gg_obj$labels['x'][[1]] %in% colnames(gg_data) && gg_obj$labels['y'][[1]] %in% colnames(gg_data))
+  {
+    draw_plot = TRUE
+  }
+  
   if (inherits(gg_obj$facet, 'null'))
   {
     g_facet = "placeholder"
@@ -57,7 +66,8 @@ polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(0,1), pal
     data_cols = data_cols,
     use_title = use_title,
     use_color = use_color,
-    use_facet = use_facet
+    use_facet = use_facet,
+    draw_plot = draw_plot
   )
 
   # create widget
@@ -73,7 +83,7 @@ polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(0,1), pal
 #'
 #' @importFrom htmlwidgets shinyWidgetOutput
 #' @export
-polychartOutput <- function(outputId, width = '100%', height = '400px'){
+polychartOutput <- function(outputId, width = '100%', height = '800px'){
   shinyWidgetOutput(outputId, 'polychart', width, height, package = 'polychart')
 }
 #' Widget render function for use in Shiny

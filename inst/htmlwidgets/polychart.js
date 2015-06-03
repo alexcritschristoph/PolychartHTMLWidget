@@ -22,7 +22,8 @@ HTMLWidgets.widget({
     var y_min = Math.min.apply(null, x.data[x.y_var]) - 0.05*y_r;
     var y_max = Math.max.apply(null, x.data[x.y_var]) + 0.05*y_r;
   //Assign properties.
-  
+  if (x.draw_plot)
+  {
   var polychart_obj = {}
   if(x.use_facet)
   {
@@ -93,7 +94,7 @@ HTMLWidgets.widget({
   polychart_obj['height'] = el.height;
   polychart_obj['dom'] = el.id;
 	polyjs.chart(polychart_obj);
-
+  }
   },
 
   resize: function(el, width, height, instance) {
