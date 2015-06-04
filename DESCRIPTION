@@ -1,6 +1,6 @@
 Package: polychart
 Title: Interactive Scatterplots using htmlwidgets and polychart
-Version: 0.2.6
+Version: 0.2.7
 Author:
     Alex Crits-Christoph <acc@secondgenome.com>,
     Paul J. McMurdie <joey@secondgenome.com>
