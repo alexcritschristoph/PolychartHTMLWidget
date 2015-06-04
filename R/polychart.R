@@ -28,7 +28,7 @@ polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(0,1), pal
   }
   else
   {
-    g_facet = toString(unlist(gg_obj$facet[1])$rows)
+    g_facet = as.character(gg_obj$facet$facets[[1]])
     use_facet = TRUE
   }
   if (is.null(gg_obj$labels['title'][[1]]))

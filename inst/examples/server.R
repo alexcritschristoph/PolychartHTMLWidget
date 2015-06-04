@@ -14,6 +14,7 @@ shinyServer(function(input, output) {
     sp <- ggplot(mtcars, aes(x=wt, y=mpg)) +
       geom_point()
     gg <- sp +
+      facet_grid(. ~ vs) +
       ggtitle("This is the title!")
     return(gg)
   })

@@ -25,6 +25,8 @@ HTMLWidgets.widget({
   var polychart_obj = {};
   if(x.use_facet)
   {
+    console.log("Got here");
+    console.log(x.facet);
     polychart_obj['facet'] = {
         type: "wrap",
         var: x.facet,
@@ -34,7 +36,8 @@ HTMLWidgets.widget({
           }
         };
   }
-
+  console.log("***");
+  console.log(x.facet);
   if (x.use_title){
     polychart_obj['title'] = x.title;
     }
