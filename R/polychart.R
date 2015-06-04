@@ -12,11 +12,11 @@ polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(0,1), pal
   #Get data
   gg_data = gg_obj$data
   draw_plot = FALSE
-  
+
   #Check if dataframe is empty or not empty
 
   #Check if x and y columns in data frame are
-  if (gg_obj$labels['x'][[1]] %in% colnames(gg_data) && gg_obj$labels['y'][[1]] %in% colnames(gg_data))
+  if (as.character(gg_obj$mapping[['x']]) %in% colnames(gg_data) && as.character(gg_obj$mapping[['y']]) %in% colnames(gg_data))
   {
     draw_plot = TRUE
   }
@@ -61,8 +61,8 @@ polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(0,1), pal
     facet = g_facet,
     color = g_color,
     title = title,
-    x_var = gg_obj$labels['x'][[1]],
-    y_var = gg_obj$labels['y'][[1]],
+    x_var = as.character(gg_obj$mapping[['x']]),
+    y_var = as.character(gg_obj$mapping[['y']]),
     data_cols = data_cols,
     use_title = use_title,
     use_color = use_color,

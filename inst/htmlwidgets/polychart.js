@@ -6,7 +6,6 @@ HTMLWidgets.widget({
 
   initialize: function(el, width, height) {
     return "We don't initialize here!";
-    console.log("Test!");
   },
   renderValue: function(el, x, instance) {
    document.getElementById(el.id).innerHTML="";
