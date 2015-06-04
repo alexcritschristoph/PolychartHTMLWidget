@@ -66,7 +66,7 @@ HTMLWidgets.widget({
           data: searchterms,
           type: "point",
 	        x: x.x_var,
-	        y: x.y_var,sdsds
+	        y: x.y_var,
           tooltip: function(ex) {
             var html_string = "";
             for (i = 0; i < x.data_cols.length; i++) {
