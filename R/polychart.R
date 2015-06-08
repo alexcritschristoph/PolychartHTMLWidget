@@ -5,7 +5,7 @@
 #' @importFrom htmlwidgets createWidget
 #'
 #' @export
-polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(), palette=c("#3182bd","#fd8d3c","#74c476")) {
+polychart <- function(gg_obj, width = 900, height = 500, data_cols=c(), palette=c("#3182bd","#fd8d3c","#74c476")) {
 
   palette = as.factor(palette)
 
@@ -83,7 +83,7 @@ polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(), palett
 #'
 #' @importFrom htmlwidgets shinyWidgetOutput
 #' @export
-polychartOutput <- function(outputId, width = '100%', height = '800px'){
+polychartOutput <- function(outputId, width = 800, height = 300){
   shinyWidgetOutput(outputId, 'polychart', width, height, package = 'polychart')
 }
 #' Widget render function for use in Shiny

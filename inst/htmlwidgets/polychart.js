@@ -3,14 +3,14 @@ HTMLWidgets.widget({
   name: 'polychart',
 
   type: 'output',
-
   initialize: function(el, width, height) {
-    return "We don't initialize here!";
+    set_height = height;
+    set_width = width;
+    return "setting width and height";
+
   },
   renderValue: function(el, x, instance) {
    document.getElementById(el.id).innerHTML="";
-   console.log("main data:");
-   console.log(x);
     //Create JSON data.
     var searchterms = polyjs.data(x.data);
     var x_r = Math.max.apply(null, x.data[x.x_var]) - Math.min.apply(null, x.data[x.x_var]);
@@ -26,8 +26,6 @@ HTMLWidgets.widget({
   var polychart_obj = {};
   if(x.use_facet)
   {
-    console.log("Got here");
-    console.log(x.facet);
     polychart_obj['facet'] = {
         type: "wrap",
         var: x.facet,
@@ -37,8 +35,6 @@ HTMLWidgets.widget({
           }
         };
   }
-  console.log("***");
-  console.log(x.facet);
   if (x.use_title){
     polychart_obj['title'] = x.title;
     }
@@ -91,20 +87,17 @@ HTMLWidgets.widget({
     },
 
         };
-  console.log("Creating polychart");
-  polychart_obj['width']=600;
-  polychart_obj['height'] = el.height;
+  polychart_obj['width']=set_width;
+  polychart_obj['height'] = set_height;
   polychart_obj['dom'] = el.id;
 	polyjs.chart(polychart_obj);
   }
   else{
       console.log("Draw plot was false");
   }
-  console.log("Done rendering value");
   },
 
   resize: function(el, width, height, instance) {
-
   }
 
 });
