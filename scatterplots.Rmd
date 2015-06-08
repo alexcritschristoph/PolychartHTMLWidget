@@ -14,7 +14,7 @@ library(ggplot2)
 sp <- ggplot(mtcars, aes(x=wt, y=mpg)) + 
   geom_point(aes(colour=am)) 
 gg <- sp + 
-  facet_grid(vs ~.) + 
+  facet_wrap(~ vs) + 
   ggtitle("This is the title!")
 ```
 
