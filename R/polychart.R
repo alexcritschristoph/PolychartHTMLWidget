@@ -5,7 +5,7 @@
 #' @importFrom htmlwidgets createWidget
 #'
 #' @export
-polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(0,1), palette=c("#3182bd","#fd8d3c","#74c476")) {
+polychart <- function(gg_obj, width = NULL, height = NULL, data_cols=c(), palette=c("#3182bd","#fd8d3c","#74c476")) {
 
   palette = as.factor(palette)
 

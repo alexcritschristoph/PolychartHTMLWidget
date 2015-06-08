@@ -9,7 +9,8 @@ HTMLWidgets.widget({
   },
   renderValue: function(el, x, instance) {
    document.getElementById(el.id).innerHTML="";
-
+   console.log("main data:");
+   console.log(x);
     //Create JSON data.
     var searchterms = polyjs.data(x.data);
     var x_r = Math.max.apply(null, x.data[x.x_var]) - Math.min.apply(null, x.data[x.x_var]);
@@ -87,15 +88,19 @@ HTMLWidgets.widget({
         x: {
         min: x_min,
         max: x_max,
-        },
+    },
 
         };
-
+  console.log("Creating polychart");
   polychart_obj['width']=600;
   polychart_obj['height'] = el.height;
   polychart_obj['dom'] = el.id;
 	polyjs.chart(polychart_obj);
   }
+  else{
+      console.log("Draw plot was false");
+  }
+  console.log("Done rendering value");
   },
 
   resize: function(el, width, height, instance) {
