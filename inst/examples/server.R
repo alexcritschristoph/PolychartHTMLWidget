@@ -9,12 +9,11 @@ shinyServer(function(input, output) {
   #     re-executed when inputs change
   #  2) Its output type is a plot
   make_ggplot = reactive({
-    mtcars$wt[5] = NA
  
     sp <- ggplot(mtcars, aes(x=wt, y=mpg)) +
       geom_point()
     gg <- sp +
-      facet_grid(. ~ vs) +
+      facet_wrap(~ vs) +
       ggtitle("This is the title!")
     return(gg)
   })
