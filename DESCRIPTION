@@ -2,8 +2,8 @@ Package: polychart
 Title: Interactive Scatterplots using htmlwidgets and polychart
 Version: 0.3.0
 Author:
-    Alex Crits-Christoph <acc@secondgenome.com>,
-    Paul J. McMurdie <joey@secondgenome.com>
+    Alex Crits-Christoph <acc [AT] secondgenome [DOT] com>,
+    Paul J. McMurdie <joey [AT] secondgenome [DOT] com>
 Description: Complete htmlwidgets-based interface for mapping
 Depends: R (>= 3.1.1)
 Imports:
